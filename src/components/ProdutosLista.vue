@@ -10,23 +10,37 @@
       <p class="preco">{{ produto.preco }}</p>
       <p class="descricao">{{ produto.descricao }}</p>
     </div>
+    {{ url }}
   </section>
 </template>
 
 <script>
 import { api } from "@/services/services.js";
+import { serialize } from "@/helpers/helpers.js";
 export default {
   name: "ProdutosLista",
   data() {
     return {
       produtos: null,
+      produtosPorPagina: 9,
     };
+  },
+  computed: {
+    url() {
+      const query = serialize(this.$route.query);
+      return `/produto?_limit=${this.produtosPorPagina}${query}`;
+    },
   },
   methods: {
     getProdutos() {
-      api.get("/produto").then((response) => {
+      api.get(this.url).then((response) => {
         this.produtos = response.data;
       });
+    },
+  },
+  watch: {
+    url() {
+      this.getProdutos();
     },
   },
   created() {
