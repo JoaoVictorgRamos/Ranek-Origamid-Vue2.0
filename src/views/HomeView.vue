@@ -1,9 +1,28 @@
 <template>
-  <div>Home</div>
+  <section>
+    <h1>👍Compre ou Venda👎</h1>
+    <ProdutosBuscar />
+    <ProdutosLista />
+  </section>
 </template>
 
 <script>
-export default {};
+import ProdutosLista from "@/components/ProdutosLista.vue";
+import ProdutosBuscar from "@/components/ProdutosBuscar.vue";
+export default {
+  name: "HomeView",
+  components: {
+    ProdutosLista,
+    ProdutosBuscar,
+  },
+};
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  color: #87f;
+  margin-top: 40px;
+  font-size: 2rem;
+  text-align: center;
+}
+</style>
