@@ -9,3 +9,7 @@ export const api = {
     return axiosInstance.get(url);
   },
 };
+
+export function getcep(cep) {
+  return axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+}
