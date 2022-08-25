@@ -4,7 +4,7 @@
       <router-link to="/" class="logo">
         <img src="@/assets/ranek.svg" alt="Ranek" />
       </router-link>
-      <router-link to="/LoginView" class="btn">Vender / Login</router-link>
+      <router-link to="/login" class="btn">Vender / Login</router-link>
     </nav>
   </div>
 </template>
