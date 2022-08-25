@@ -64,6 +64,7 @@ img {
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
   transition: all 0.3s;
+  border: none;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }

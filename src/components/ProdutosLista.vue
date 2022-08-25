@@ -7,14 +7,16 @@
         key="produtos"
       >
         <div v-for="(produto, index) in produtos" :key="index" class="produto">
-          <router-link to="/">
+          <router-link
+            :to="{ name: 'ProdutoView', params: { id: produto.id } }"
+          >
             <img
               v-if="produto.fotos"
               :src="produto.fotos[0]"
               :alt="produto.fotos[0].titulo"
             />
             <h2 class="titulo">{{ produto.nome }}</h2>
-            <p class="preco">{{ produto.preco }}</p>
+            <p class="preco">{{ produto.preco | NumeroPreco }}</p>
             <p class="descricao">{{ produto.descricao }}</p>
           </router-link>
         </div>
@@ -28,7 +30,7 @@
           Busca sem resultado. Tente buscar outro termo.
         </p>
       </div>
-      <PaginaCarregando v-else key="carregando" />
+      <PaginaCarregando v-else key="carregando" class="carregando" />
     </transition>
   </section>
 </template>
@@ -117,7 +119,8 @@ export default {
   font-weight: bold;
 }
 
-.sem-resultado {
+.sem-resultado,
+.carregando {
   text-align: center;
 }
 </style>
