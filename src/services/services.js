@@ -8,6 +8,9 @@ export const api = {
   get(url) {
     return axiosInstance.get(url);
   },
+  post(endpoint, body) {
+    return axiosInstance.post(endpoint, body);
+  },
 };
 
 export function getcep(cep) {
